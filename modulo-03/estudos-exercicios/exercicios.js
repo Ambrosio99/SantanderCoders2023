@@ -17,14 +17,103 @@ class Rectangle {
         this.width = width;
         this.height = height;
     }
+    calc() {
+        console.log("A área do retângulo é " + this.width * this.height);
+    }
 }
+const retanguloNovo = new Rectangle(30, 15);
 // 4. Crie uma classe Circle com propriedade radius e um método que calcula a área do círculo.
+class Circulo {
+    constructor(raio) {
+        this.raio = raio;
+    }
+    calcArea() {
+        const area = Math.PI * Math.pow(this.raio, 2);
+        return area;
+    }
+}
+const circuloNovo = new Circulo(10);
 // 5. Crie uma classe Car com propriedades make, model e year. Crie um método que retorna a descrição do carro.
+class Carro {
+    constructor(marca, modelo, ano) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.ano = ano;
+    }
+    descricao() {
+        return `O seu carro é da marca: ${this.marca}, seu modelo é ${this.modelo} e foi fabricado em ${this.ano}`;
+    }
+}
+const peugeot = new Carro("Peugeot", "208GT", 2017);
 // 6. Crie uma classe Student com propriedades name e grades (um array). Adicione um método que calcula a média das notas.
+class Estudante {
+    constructor(nome, notas) {
+        this.nome = nome;
+        this.notas = notas;
+    }
+    calcMedia() {
+        let notatotal = this.notas.reduce((total, nota) => total + nota, 0);
+        const media = notatotal / this.notas.length;
+        return `A média de suas notas é: ${media}`;
+    }
+}
+const lucas = new Estudante("Lucas", [80, 72, 90, 95, 45]);
 // 7. Crie uma classe BankAccount com propriedades balance e owner. Adicione métodos para depositar e sacar dinheiro.
+class contaBanco {
+    constructor(dono, saldo) {
+        this.saldo = saldo;
+        this.dono = dono;
+    }
+    depositar(valor) {
+        this.saldo = this.saldo + valor;
+        return `Deposito realizado com sucesso! Seu saldo atual é de R$ ${this.saldo}`;
+    }
+    sacar(valor) {
+        this.saldo = this.saldo - valor;
+        return `Operação realizada com sucesso! Seu saldo atual é de R$ ${this.saldo}`;
+    }
+}
+const conta01 = new contaBanco("Lucas", 10);
 // 8. Crie uma classe Book com propriedades title, author e year. Crie um método que retorna os detalhes do livro.
+class Livro {
+    constructor(titulo, autor, ano) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.ano = ano;
+    }
+    descricao() {
+        return `Título do livro: ${this.titulo}, seu autor é ${this.autor} e foi publicado em ${this.ano}`;
+    }
+}
+const novoLivro = new Livro("Código sujo", "Ambrosio LTDA", 2024);
 // 9. Crie uma classe Product com propriedades name, price e quantity. Adicione métodos para calcular o valor total e exibir os detalhes.
+class Produto {
+    constructor(nome, preco, quantia) {
+        this.nome = nome;
+        this.preco = preco;
+        this.quantia = quantia;
+    }
+    calcTotal() {
+        let total = this.quantia * this.preco;
+        return `O produto: ${this.nome}, custa R$ ${this.preco} e temos ${this.quantia} unidades no estoque. Levando todas as unidades fica por R$ ${total}`;
+    }
+}
+const shampoo = new Produto("shampoo", 12, 5);
 // 10. Crie uma classe Employee com propriedades name, role e salary. Adicione um método que calcula um aumento de salário com base em uma porcentagem.
+class Empregado {
+    constructor(nome, cargo, salario) {
+        this.nome = nome;
+        this.cargo = cargo;
+        this.salario = salario;
+    }
+    aumentarSalario(porcentagem) {
+        let valorAumento;
+        valorAumento = this.salario * (porcentagem / 100) + this.salario;
+        return `O valor do novo salário é de R$ ${valorAumento}`;
+    }
+}
+const empregado01 = new Empregado("Lucas", "Dev Front-end", 1600);
+// EXERCÍCIOS INTERMEDIÁRIOS
 // 11. Crie uma classe Bank que contém uma coleção de contas bancárias. Adicione métodos para adicionar contas, fazer transferências e calcular o saldo total do banco.
 // 12. Crie uma classe Shape com método calculateArea(). Crie subclasses Square, Triangle e Pentagon que implementam esse método.
 // 13. Crie uma classe Playlist que contém objetos da classe Song. Adicione métodos para adicionar músicas, remover músicas e calcular a duração total da playlist.
