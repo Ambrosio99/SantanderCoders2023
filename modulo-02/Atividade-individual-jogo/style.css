@@ -1,0 +1,224 @@
+body {
+  font-family: roboto, monospace, sans-serif;
+}
+
+.bg-header {
+  background-color: rgb(43, 43, 43);
+}
+.container-all {
+  display: grid;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.container-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+.container-nav img {
+  place-self: center;
+}
+.ul-nav {
+  display: flex;
+  gap: 40px;
+}
+.ul-nav li {
+  position: relative;
+  font-size: 1.25rem;
+  font-weight: 500;
+  padding: 4px 0px;
+  cursor: pointer;
+  color: white;
+  border-bottom: 2px solid rgba(75, 68, 68, 0);
+}
+.ul-nav li::after {
+  position: absolute;
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0;
+  background-color: rgb(255, 255, 255);
+  margin-top: 2px;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+.ul-nav li:hover::after {
+  width: 100%;
+}
+.p-dica {
+  box-sizing: border-box;
+  font-weight: 500;
+}
+
+.erros-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.15rem;
+  font-weight: 500;
+  padding: 40px 20px 20px 20px;
+  box-sizing: border-box;
+}
+.span-erros {
+  color: rgb(251, 25, 25);
+  font-weight: 700;
+}
+.letras-incorretas {
+  display: flex;
+}
+.jogo-forca {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 20px;
+}
+
+.box02 {
+  position: relative;
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  justify-items: center;
+  align-content: end;
+  height: 400px;
+}
+.lista-palavra {
+  display: flex;
+  gap: 18px;
+  font-size: 2rem;
+  font-weight: 700;
+  place-self: end;
+  justify-self: center;
+}
+.form-forca {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  place-self: start;
+  justify-self: center;
+  padding-top: 30px;
+}
+.form-digite {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.form-text {
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  max-width: 150px;
+}
+.form-button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgb(43, 43, 43);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.perdeu {
+  position: absolute;
+  color: white;
+  right: 40px;
+  top: 90px;
+  padding: 60px 100px;
+  background-color: rgba(255, 0, 0, 0.7);
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.505);
+  z-index: 200;
+}
+.ganhou {
+  position: absolute;
+  color: white;
+  right: 40px;
+  top: 90px;
+  padding: 60px 100px;
+  background-color: rgba(3, 188, 46, 0.7);
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.505);
+  z-index: 200;
+}
+.jaFoi {
+  position: absolute;
+  color: black;
+  font-weight: 500;
+  font-size: 1.05rem;
+  bottom: -30px;
+  right: 120px;
+  background-color: white;
+}
+.somenteLetras {
+  position: absolute;
+  color: black;
+  font-weight: 500;
+  font-size: 0.95rem;
+  bottom: -30px;
+  right: 90px;
+  color: rgb(199, 0, 0);
+  font-size: 1.05rem;
+  font-weight: 500;
+  background-color: white;
+}
+.palavraEra {
+  position: absolute;
+  color: black;
+  font-weight: 500;
+  font-size: 0.95rem;
+  bottom: -30px;
+  right: 105px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  background-color: white;
+}
+.antesEnviar {
+  position: absolute;
+  color: black;
+  font-weight: 500;
+  font-size: 0.95rem;
+  bottom: -30px;
+  right: 60px;
+  color: rgb(199, 0, 0);
+  font-size: 1.05rem;
+  font-weight: 500;
+  background-color: white;
+}
+.displayOff {
+  display: none;
+}
+.diff-facil {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background-color: rgba(3, 188, 46, 0.7);
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 28px;
+  color: rgb(0, 0, 0);
+}
+.diff-medio {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background-color: rgba(201, 163, 13, 0.659);
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 28px;
+  color: rgba(0, 0, 0, 0.8);
+}
+.diff-hard {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background-color: rgba(255, 0, 0, 0.7);
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 28px;
+  color: rgba(0, 0, 0, 0.8);
+}

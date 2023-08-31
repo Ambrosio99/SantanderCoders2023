@@ -1,0 +1,311 @@
+@import url(theme.css);
+
+* {
+  box-sizing: border-box;
+}
+
+#agendamento {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Roboto;
+}
+
+#agendamento > header {
+  max-width: 1080px;
+}
+
+#agendamento .user-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+  padding-right: 0.5em;
+  border-radius: 1em;
+  border-top-left-radius: 2em;
+  border-bottom-left-radius: 2em;
+  border-bottom: 1px solid var(--md-sys-color-background);
+  border-right: 1px solid var(--md-sys-color-background);
+}
+
+#agendamento .user-menu img {
+  height: 4em;
+  width: 4em;
+}
+
+#agendamento > main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#agendamento > main .wrapper {
+  max-width: 1080px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1em;
+  margin: 2em 0px;
+}
+
+#agendamento > main section {
+  max-width: 1080px;
+  margin: 0px;
+}
+
+#agendamento .banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+
+#agendamento .banner img {
+  max-height: 50vh;
+}
+
+#agendamento .banner-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1em;
+  padding: 2em;
+  text-align: center;
+  height: 100%;
+}
+
+#agendamento .banner-text button {
+  min-width: 4em;
+  padding: 0.125em 1em;
+  border-radius: 1em;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#agendamento .banner-text span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em;
+}
+
+#agendamento .banner-text button:hover {
+  background-color: var(--md-sys-color-on-primary);
+}
+
+#agendamento .banner-text button:hover span {
+  color: var(--md-sys-color-secondary);
+}
+
+#especialidades {
+  grid-column: 1 / span 1;
+}
+
+#especialidades-lista {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 2em 1em;
+  border-radius: 1em;
+  gap: 1em;
+}
+
+#especialidades-lista input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--md-sys-color-surface-variant);
+  font: inherit;
+  color: var(--md-sys-color-primary);
+  width: 1em;
+  height: 1em;
+  margin-right: 0.25em;
+  border: 1px solid teal;
+  border-color: var(--md-sys-color-primary);
+  border-radius: 50%;
+  transform: translateY(0.125em);
+  transition: 120ms transform ease-in-out;
+}
+
+#especialidades-lista input[type="radio"]:checked {
+  transform: scale(1);
+  box-shadow: inset 1em 1em var(--md-sys-color-primary);
+}
+
+#especialidades-lista input[type="radio"]:hover {
+  transform: scale(1);
+  outline: max(2px, 0.15em) solid var(--md-sys-color-primary);
+  outline-offset: max(2px, 0.15em);
+}
+
+#calendario {
+  grid-column: 2 / span 1;
+  padding: 1em;
+  border-radius: 1em;
+}
+
+#calendario h3 {
+  padding: 0.25em 0px;
+  margin-top: 1em;
+  text-align: center;
+  border-bottom: 1px solid var(--md-sys-color-primary);
+}
+
+.mes-seletor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1em 0px;
+}
+
+.semanal {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.dias {
+  text-align: center;
+}
+
+.dias input[type="radio"] {
+  position: absolute;
+  -webkit-appearance: none;
+  appearance: none;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dias label {
+  height: 1.75em;
+  width: 1.75em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dias input[type="radio"]:checked + label {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  border-radius: 50%;
+}
+
+.dias label:hover {
+  background-color: var(--md-sys-color-on-primary);
+  color: var(--md-sys-color-primary);
+  border-radius: 50%;
+}
+
+#especialistas {
+  grid-column: 1 / span 2;
+}
+
+#especialistas article {
+  border-radius: 1em;
+  margin-bottom: 1px;
+}
+
+#especialistas label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  border-radius: 1em;
+  gap: 1em;
+}
+
+#especialistas label span {
+  width: 100%;
+}
+
+.esp-avatar {
+  height: 4em;
+  width: 4em;
+}
+
+#especialistas input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  font: inherit;
+  color: teal;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid teal;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+
+#especialistas input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em teal;
+}
+
+#especialistas input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+#especialistas input[type="checkbox"]:focus {
+  outline: max(2px, 0.15em) solid currentColor;
+  outline-offset: max(2px, 0.15em);
+}
+
+#confirmacao {
+  grid-column: 1 / span 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#confirmacao div {
+  border-radius: 1em;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  width: 15em;
+}
+
+#confirmacao img {
+  height: 24px;
+  width: 24px;
+}
+
+#confirmacao h3 {
+  padding: 1em 0px;
+}
+
+#confirmacao p {
+  text-align: justify;
+}
+
+#confirmacao div #confirmar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#confirmar button {
+  padding: 0.5em;
+  border: none;
+}
+
+.cancelar:hover {
+  background-color: var(--md-sys-color-error);
+  color: var(--md-sys-color-on-error);
+}
+
+.cancelar {
+  grid-column: 2 / span 1;
+}
+
+.confirmar:hover {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
