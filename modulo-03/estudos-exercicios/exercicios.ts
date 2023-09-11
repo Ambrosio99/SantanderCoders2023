@@ -169,7 +169,43 @@ const empregado01 = new Empregado("Lucas", "Dev Front-end", 1600);
 // EXERCÍCIOS INTERMEDIÁRIOS
 
 // 11. Crie uma classe Bank que contém uma coleção de contas bancárias. Adicione métodos para adicionar contas, fazer transferências e calcular o saldo total do banco.
+class conta {
+  dono: string;
+  saldo: number;
+  constructor(dono: string, saldo: number) {
+    this.dono = dono;
+    this.saldo = saldo;
+  }
+}
 
+class Banco {
+  contasBancarias: conta[] = [];
+
+  criarConta(nome: string, saldo: number) {
+    let contaCriada = new conta(nome, saldo);
+    this.contasBancarias.push(contaCriada);
+  }
+
+  transferir(valor: number, praQuem: string, deQuem: string) {
+    this.contasBancarias.forEach((conta) => {
+      if (conta.dono === deQuem) {
+        conta.saldo -= valor;
+        if (conta.dono === praQuem) {
+          conta.saldo += valor;
+        } else {
+          throw "A conta não existe, retornamos o valor para sua conta.";
+        }
+      } else {
+        throw "A conta não existe remetente";
+      }
+    });
+  }
+}
+const coders23 = new Banco();
+
+coders23.criarConta("Lucas", 3000);
+coders23.criarConta("Bruno", 5000);
+console.log(coders23.contasBancarias);
 // 12. Crie uma classe Shape com método calculateArea(). Crie subclasses Square, Triangle e Pentagon que implementam esse método.
 
 // 13. Crie uma classe Playlist que contém objetos da classe Song. Adicione métodos para adicionar músicas, remover músicas e calcular a duração total da playlist.
