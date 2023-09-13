@@ -31,20 +31,36 @@ class Banco {
     nome = addNome.value;
     saldo = Number(addSaldo.value);
     senha = Number(addSenha.value);
+
     const existeID = this.contasBanco.find((conta) => conta.id == id);
+
     if (id && nome && saldo && senha && id.length < 6 && !existeID) {
-      let novaConta = new ContaBancaria(id, nome, saldo, senha);
-      this.contasBanco.push(novaConta);
-      this.attLista();
-      addId.value = "";
-      addNome.value = "";
-      addSaldo.value = "";
-      addSenha.value = "";
-      avisos("addConta-01");
+      if (/^[a-zA-Z\s]+$/.test(nome)) {
+        let novaConta = new ContaBancaria(id, nome, saldo, senha);
+        this.contasBanco.push(novaConta);
+        this.attLista();
+        addId.value = "";
+        addNome.value = "";
+        addSaldo.value = "";
+        addSenha.value = "";
+        avisos("addConta-01");
+      } else {
+        avisos("addConta-04");
+      }
     } else if (existeID) {
       avisos("addConta-02");
     } else {
       avisos("addConta-03");
+    }
+  }
+
+  removerConta(id: stringNumber) {
+    const indexConta = this.contasBanco.findIndex((conta) => conta.id === id);
+    if (indexConta > -1) {
+      this.contasBanco.splice(indexConta, 1);
+      this.attLista();
+    } else {
+      throw "ID não encontrado";
     }
   }
 
@@ -53,11 +69,13 @@ class Banco {
     const loginSenha = <HTMLInputElement>document.getElementById("loginSenha");
     id = loginId.value;
     senha = Number(loginSenha.value);
+
     const verificarID = bank.contasBanco.find((conta) => conta.id == id);
     if (!verificarID) {
       avisos("login-03");
       return;
     }
+
     bank.contasBanco.forEach((conta) => {
       if (conta.id == id) {
         if (conta.senha == senha) {
@@ -183,7 +201,7 @@ function avisos(tipo: string) {
     setTimeout(() => formLogin?.removeChild(element), 2000);
   }
   if (tipo === "login-03") {
-    element.innerText = "ID não cadastrado!";
+    element.innerText = "ID não cadastrado.";
     element.classList.add("vermelho01");
     formLogin?.appendChild(element);
     setTimeout(() => formLogin?.removeChild(element), 2000);
@@ -232,6 +250,13 @@ function avisos(tipo: string) {
   }
   if (tipo === "addConta-03") {
     element.innerText = "Preencha todos os dados corretamente como descrito!";
+    element.classList.add("vermelho01");
+    element.classList.add("aviso");
+    box02?.appendChild(element);
+    setTimeout(() => box02?.removeChild(element), 2000);
+  }
+  if (tipo === "addConta-04") {
+    element.innerText = "Nome deve conter apenas letras.";
     element.classList.add("vermelho01");
     element.classList.add("aviso");
     box02?.appendChild(element);
