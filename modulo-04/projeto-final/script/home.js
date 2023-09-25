@@ -3,17 +3,17 @@ export default function initHome() {
 
   const div = document.createElement("div");
   div.classList.add("container-intro");
-  div.id = "divHome"
+  div.id = "divHome";
 
   const h1 = document.createElement("h1");
   h1.innerText = "Churrascômetro";
 
   const p = document.createElement("p");
-  p.innerText = "Organize melhor o seu churrasco! O Churrascômetro foi desenvolvido com o intuito de facilitar a organização dos gastos do seu churrasco, tornando o cálculo muito mais preciso e eficiente para que você e seus convidados gastem na medida certa para um ótimo churrasco."
+  p.innerText = "Organize melhor o seu churrasco! O Churrascômetro foi desenvolvido com o intuito de facilitar a organização dos gastos do seu churrasco, tornando o cálculo muito mais preciso e eficiente para que você e seus convidados gastem na medida certa para um ótimo churrasco.";
 
   const button = document.createElement("button");
   button.innerHTML = `Calcular seu churrasco <span class="span-button">➜</span>`;
-  button.id = "buttonHome"
+  button.id = "buttonHome";
 
   const img = document.createElement("img");
   img.src = "./img/churras_init.svg";
