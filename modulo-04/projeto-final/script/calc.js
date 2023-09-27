@@ -16,19 +16,19 @@ export default function initCalc() {
   formPessoas.innerHTML = `<div class="divPessoas" id="adultos">
   <label for="adultos">Adultos:</label>
   <button type="button" id="removePessoa"> – </button>
-  <span id="valor">0</span>
+  <span id="numAdultos">0</span>
   <button type="button" id="addPessoa"> + </button>
 </div>
 <div class="divPessoas" id="vaoBeber">
   <label for="beber">Vão beber:</label>
   <button type="button" id="removePessoa"> – </button>
-  <span id="valor">0</span>
+  <span id="numBeber">0</span>
   <button type="button" id="addPessoa"> + </button>
 </div>
 <div class="divPessoas" id="criancas">
   <label for="criancas">Crianças:</label>
   <button type="button" id="removePessoa"> – </button>
-  <span id="valor">0</span>
+  <span id="numCriancas">0</span>
   <button type="button" id="addPessoa"> + </button>
   </div>`;
 
@@ -68,21 +68,21 @@ export default function initCalc() {
   <ul class="lista-itens" id="lista-vegan">
     <h4>Opções Veganas:</h4>
     <li><input type="checkbox" name="kafta" id="kafta"><label for="kafta">Kafta Veg</label></li>
-    <li><input type="checkbox" name="batataDoce" id="batataDoce"><label for="batataDoce">Batata Doce</label></li>
+    <li><input type="checkbox" name="batata-doce" id="batata-doce"><label for="batata-doce">Batata Doce</label></li>
     <li><input type="checkbox" name="legumes" id="legumes"><label for="legumes">Legumes</label></li>
     <li><input type="checkbox" name="hamburguer" id="hamburguer"><label for="hamburguer">Hambúrguer Veg</label></li>
-    <li><input type="checkbox" name="carneSoja" id="carneSoja"><label for="carneSoja">Carne de Soja</label></li>
+    <li><input type="checkbox" name="carne-soja" id="carne-soja"><label for="carne-soja">Carne de Soja</label></li>
     <li><input type="checkbox" name="berinjela" id="berinjela"><label for="berinjela">Berinjela</label></li>
     <li><input type="checkbox" name="cogumelo" id="cogumelo"><label for="cogumelo">Cogumelo</label></li>
     <li><input type="checkbox" name="frutas" id="frutas"><label for="frutas">Frutas</label></li>
   </ul>
   <ul class="lista-itens" id="lista-acomp">
     <h4>Acompanhamentos:</h4>
-    <li><input type="checkbox" name="paoAlho" id="paoAlho"><label for="paoAlho">Pão de Alho</label></li>
+    <li><input type="checkbox" name="pao-alho" id="pao-alho"><label for="pao-alho">Pão de Alho</label></li>
     <li><input type="checkbox" name="tomate" id="tomate"><label for="tomate">Tomate</label></li>
     <li><input type="checkbox" name="farofa" id="farofa"><label for="farofa">Farofa</label></li>
     <li><input type="checkbox" name="maionese" id="maionese"><label for="maionese">Maionese</label></li>
-    <li><input type="checkbox" name="pao" id="pao"><label for="pao">Pão Francês</label></li>
+    <li><input type="checkbox" name="pao-frances" id="pao-frances"><label for="pao-frances">Pão Francês</label></li>
     <li><input type="checkbox" name="queijo" id="queijo"><label for="queijo">Queijo</label></li>
     <li><input type="checkbox" name="cebola" id="cebola"><label for="cebola">Cebola</label></li>
     <li><input type="checkbox" name="pimentao" id="pimentao"><label for="pimentao">Pimentão</label></li>
@@ -90,6 +90,7 @@ export default function initCalc() {
 
   const buttonCalc = document.createElement("button");
   buttonCalc.classList.add("button-calc");
+  buttonCalc.id = "buttonCalc";
   buttonCalc.innerText = "Calcular";
 
   mainContainer.appendChild(div);
@@ -106,14 +107,14 @@ export default function initCalc() {
   botaoMais.forEach((item) => {
     item.addEventListener("click", () => {
       const divItem = item.parentNode;
-      const spanValor = divItem.querySelector("#valor");
+      const spanValor = divItem.querySelector("span");
       spanValor.innerText++;
     });
   });
   botaoMenos.forEach((item) => {
     item.addEventListener("click", () => {
       const divItem = item.parentNode;
-      const spanValor = divItem.querySelector("#valor");
+      const spanValor = divItem.querySelector("span");
       if (spanValor.innerText > 0) {
         spanValor.innerText--;
       }
