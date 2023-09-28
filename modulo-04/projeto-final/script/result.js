@@ -31,6 +31,11 @@ export default function resultCalc() {
   buttonCalc.addEventListener("click", calcResult);
 
   function calcResult() {
+    let valorCarne = 0;
+    let adultoCome = 500;
+    let criancaCome = 200;
+    
+
     // Puxando o número de pessoas e quantos vão beber
     const numAdultos = Number(document.getElementById("numAdultos").innerText);
     const numBeber = Number(document.getElementById("numBeber").innerText);
@@ -48,5 +53,18 @@ export default function resultCalc() {
     // Acompanhamentos selecionados
     const listaAcomp = document.querySelectorAll("#lista-acomp li input");
     listaAcomp.forEach((acomp) => (acomp.checked ? arrayAcomp.push(acomp.id) : ""));
+
+
+    carnes.find((carne) => {
+      if (arrayCarnes.includes(carne.id)) {
+        let quantoPrecisa = numAdultos * adultoCome + numCriancas * criancaCome
+        let valorFinal = (quantoPrecisa / carne.peso) * carne.preco
+        console.log(`vai precisar de ${quantoPrecisa}G de carne. Somente de ${carne.id} ficaria em média R$ ${valorFinal}`)
+      }
+    })
+    arrayCarnes = [];
+    arrayBebidas = [];
+    arrayVegan = [];
+    arrayAcomp = [];
   }
 }
