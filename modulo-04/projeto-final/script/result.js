@@ -1,8 +1,8 @@
 // Armazenando dados json
 let carnes = [];
 let bebidas = [];
-let vegan = [];
-let acomp = [];
+let vegans = [];
+let acomps = [];
 
 // Solicitando os dados do arquivo alimentos.json
 fetch("script/alimentos.json")
@@ -12,8 +12,8 @@ fetch("script/alimentos.json")
   .then(function (dados) {
     carnes.push(...dados.Carnes);
     bebidas.push(...dados.Bebidas);
-    vegan.push(...dados.Vegan);
-    acomp.push(...dados.Acomp);
+    vegans.push(...dados.Vegan);
+    acomps.push(...dados.Acomp);
   })
   .catch(function (error) {
     console.error("Ocorreu um erro ao carregar o JSON:", error);
@@ -21,50 +21,72 @@ fetch("script/alimentos.json")
 
 // function de apresentação do calculo final
 export default function resultCalc() {
-  // Lista de itens selecionado pelo usuário
-  let arrayCarnes = [];
-  let arrayBebidas = [];
-  let arrayVegan = [];
-  let arrayAcomp = [];
-
   const buttonCalc = document.getElementById("buttonCalc");
   buttonCalc.addEventListener("click", calcResult);
 
   function calcResult() {
-    let valorCarne = 0;
     let adultoCome = 500;
     let criancaCome = 200;
-    
+
+    let carnesSelecionadas = [];
+    let bebidasSelecionadas = [];
+    let veganSelecionadas = [];
+    let acompSelecionadas = [];
 
     // Puxando o número de pessoas e quantos vão beber
     const numAdultos = Number(document.getElementById("numAdultos").innerText);
     const numBeber = Number(document.getElementById("numBeber").innerText);
     const numCriancas = Number(document.getElementById("numCriancas").innerText);
 
-    // Carnes selecionadas
+    // Carnes selecionadas e forEach para adicionar a array de selecionados
     const listaCarnes = document.querySelectorAll("#lista-carnes li input");
-    listaCarnes.forEach((carne) => (carne.checked ? arrayCarnes.push(carne.id) : ""));
-    // Bebidas selecionadas
+    carnes.forEach((carne) => {
+      listaCarnes.forEach((item) => (item.checked ? (carne.id === item.id ? carnesSelecionadas.push(carne) : "") : ""));
+    });
+
+    // Bebidas selecionadas e forEach para adicionar a array de selecionados
     const listaBebidas = document.querySelectorAll("#lista-bebidas li input");
-    listaBebidas.forEach((bebida) => (bebida.checked ? arrayBebidas.push(bebida.id) : ""));
-    // Vegan selecionadas
+    bebidas.forEach((bebida) => {
+      listaBebidas.forEach((item) => (item.checked ? (bebida.id === item.id ? bebidasSelecionadas.push(bebida) : "") : ""));
+    });
+
+    // Vegan selecionadas e forEach para adicionar a array de selecionados
     const listaVegan = document.querySelectorAll("#lista-vegan li input");
-    listaVegan.forEach((vegan) => (vegan.checked ? arrayVegan.push(vegan.id) : ""));
-    // Acompanhamentos selecionados
+    vegans.forEach((vegan) => {
+      listaVegan.forEach((item) => (item.checked ? (vegan.id === item.id ? veganSelecionadas.push(vegan) : "") : ""));
+    });
+
+    // Acompanhamentos selecionados e forEach para adicionar a array de selecionados
     const listaAcomp = document.querySelectorAll("#lista-acomp li input");
-    listaAcomp.forEach((acomp) => (acomp.checked ? arrayAcomp.push(acomp.id) : ""));
+    acomps.forEach((acomp) => {
+      listaAcomp.forEach((item) => (item.checked ? (acomp.id === item.id ? acompSelecionadas.push(acomp) : "") : ""));
+    });
 
+    console.log(carnesSelecionadas);
+    console.log(bebidasSelecionadas);
+    console.log(veganSelecionadas);
+    console.log(acompSelecionadas);
 
-    carnes.find((carne) => {
-      if (arrayCarnes.includes(carne.id)) {
-        let quantoPrecisa = numAdultos * adultoCome + numCriancas * criancaCome
-        let valorFinal = (quantoPrecisa / carne.peso) * carne.preco
-        console.log(`vai precisar de ${quantoPrecisa}G de carne. Somente de ${carne.id} ficaria em média R$ ${valorFinal}`)
-      }
-    })
-    arrayCarnes = [];
-    arrayBebidas = [];
-    arrayVegan = [];
-    arrayAcomp = [];
+    // Calculos apenas
+
+    const numCarnes = carnesSelecionadas.length;
+    const totalPeso = numAdultos * adultoCome + numCriancas * criancaCome;
+
+    let totalValor = 0;
+
+    let carnePeso = 0;
+    let carneValor = 0;
+    let carneTotal = 0;
+
+    // Calculo das carnes e apresentação das mesmas
+    carnesSelecionadas.forEach((carne) => {
+      carnePeso = totalPeso / numCarnes;
+      carneValor = (carnePeso / carne.peso) * carne.preco;
+      carneTotal += carneValor;
+      console.log(`São ${carnePeso}g de ${carne.id} e o preço médio é de ${parseFloat(carneValor)} reais`);
+    });
+
+    // Calculo das bebidas
+    bebidasSelecionadas.forEach((bedida) => {});
   }
 }

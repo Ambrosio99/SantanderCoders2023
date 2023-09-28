@@ -74,44 +74,68 @@
   "Bebidas": [
     {
       "id": "cerveja",
-      "preco": 3
+      "preco": 3,
+      "qnt": 5,
+      "alcool": true
     },
     {
       "id": "refrigerante",
-      "preco": 7
+      "preco": 7,
+      "qnt": 1,
+      "alcool": false
     },
     {
       "id": "whisky",
-      "preco": 80
+      "preco": 80,
+      "qnt": 1,
+      "alcool": true
     },
     {
       "id": "agua",
-      "preco": 2
+      "preco": 2,
+      "qnt": 2,
+      "alcool": false
     },
     {
       "id": "vodka",
-      "preco": 25
+      "preco": 25,
+      "qnt": 1,
+      "alcool": true
+    },
+    {
+      "id": "suco",
+      "preco": 6,
+      "qnt": 1,
+      "alcool": false
     },
     {
       "id": "gin",
-      "preco": 35
+      "preco": 35,
+      "qnt": 1,
+      "alcool": true
     },
     {
       "id": "cha",
-      "preco": 6
+      "preco": 6,
+      "qnt": 1,
+      "alcool": false
     },
     {
       "id": "vinho",
-      "preco": 25
+      "preco": 25,
+      "qnt": 1,
+      "alcool": true
     },
     {
       "id": "energetico",
-      "preco": 8
+      "preco": 8,
+      "qnt": 1,
+      "alcool": false
     }
   ],
   "Vegan": [
     {
-      "id": "kafta-vegan",
+      "id": "kafta",
       "preco": 60,
       "peso": 1000
     },
@@ -126,7 +150,7 @@
       "peso": 1000
     },
     {
-      "id": "hamburger-vegan",
+      "id": "hamburguer",
       "preco": 42,
       "peso": 1000
     },
@@ -136,7 +160,7 @@
       "peso": 1000
     },
     {
-      "id": "beringela",
+      "id": "berinjela",
       "preco": 5,
       "peso": 1000
     },
@@ -154,35 +178,43 @@
   "Acomp": [
     {
       "id": "pao-alho",
-      "preco": 16
+      "preco": 16,
+      "qnt": 1
     },
     {
       "id": "tomate",
-      "preco": 2
+      "preco": 2,
+      "qnt": 2
     },
     {
       "id": "farofa",
-      "preco": 12
+      "preco": 12,
+      "qnt": 1
     },
     {
       "id": "maionese",
-      "preco": 15
+      "preco": 15,
+      "qnt": 1
     },
     {
       "id": "pao-frances",
-      "preco": 0.6
+      "preco": 0.6,
+      "qnt": 3
     },
     {
       "id": "queijo",
-      "preco": 8
+      "preco": 8,
+      "qnt": 1
     },
     {
       "id": "cebola",
-      "preco": 3
+      "preco": 3,
+      "qnt": 2
     },
     {
       "id": "pimentao",
-      "preco": 3
+      "preco": 3,
+      "qnt": 2
     }
   ]
 }
