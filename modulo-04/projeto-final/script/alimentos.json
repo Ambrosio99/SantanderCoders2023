@@ -179,7 +179,7 @@
     {
       "id": "pao-alho",
       "preco": 16,
-      "qnt": 1
+      "qnt": 0.5
     },
     {
       "id": "tomate",
@@ -189,7 +189,7 @@
     {
       "id": "farofa",
       "preco": 12,
-      "qnt": 1
+      "qnt": 0.5
     },
     {
       "id": "maionese",

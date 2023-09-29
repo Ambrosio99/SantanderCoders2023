@@ -8,27 +8,31 @@ export default function initCalc() {
   const h1 = document.createElement("h1");
   h1.innerText = "Churrascômetro";
 
-  const h3Intro = document.createElement("h3");
-  h3Intro.innerText = "Quem vai e quem bebe?";
-
   const formPessoas = document.createElement("form");
   formPessoas.classList.add("formPessoas");
-  formPessoas.innerHTML = `<div class="divPessoas" id="adultos">
+  formPessoas.innerHTML = `<h3>Quem vai e quem bebe?</h3>
+  <div class="divPessoas" id="adultos">
   <label for="adultos">Adultos:</label>
   <button type="button" id="removePessoa"> – </button>
   <span id="numAdultos">0</span>
-  <button type="button" id="addPessoa"> + </button>
-</div>
-<div class="divPessoas" id="vaoBeber">
-  <label for="beber">Vão beber:</label>
-  <button type="button" id="removePessoa"> – </button>
-  <span id="numBeber">0</span>
   <button type="button" id="addPessoa"> + </button>
 </div>
 <div class="divPessoas" id="criancas">
   <label for="criancas">Crianças:</label>
   <button type="button" id="removePessoa"> – </button>
   <span id="numCriancas">0</span>
+  <button type="button" id="addPessoa"> + </button>
+  </div>
+  <div class="divPessoas" id="vaoBeber">
+  <label for="beber">Bebem: <br> (álcool)</label>
+  <button type="button" id="removePessoa"> – </button>
+  <span id="numBeber">0</span>
+  <button type="button" id="addPessoa"> + </button>
+</div>
+  <div class="divPessoas" id="veganos">
+  <label for="vegan">Veganos:</label>
+  <button type="button" id="removePessoa"> – </button>
+  <span id="numVegans">0</span>
   <button type="button" id="addPessoa"> + </button>
   </div>`;
 
@@ -70,7 +74,7 @@ export default function initCalc() {
     <li><input type="checkbox" name="kafta" id="kafta"><label for="kafta">Kafta Veg</label></li>
     <li><input type="checkbox" name="batata-doce" id="batata-doce"><label for="batata-doce">Batata Doce</label></li>
     <li><input type="checkbox" name="legumes" id="legumes"><label for="legumes">Legumes</label></li>
-    <li><input type="checkbox" name="hamburguer" id="hamburguer"><label for="hamburguer">Hambúrguer Veg</label></li>
+    <li><input type="checkbox" name="hamburguer" id="hamburguer"><label for="hamburguer">Hambúrguer</label></li>
     <li><input type="checkbox" name="carne-soja" id="carne-soja"><label for="carne-soja">Carne de Soja</label></li>
     <li><input type="checkbox" name="berinjela" id="berinjela"><label for="berinjela">Berinjela</label></li>
     <li><input type="checkbox" name="cogumelo" id="cogumelo"><label for="cogumelo">Cogumelo</label></li>
@@ -96,7 +100,6 @@ export default function initCalc() {
   mainContainer.appendChild(div);
 
   div.appendChild(h1);
-  div.appendChild(h3Intro);
   div.appendChild(formPessoas);
   div.appendChild(formAlimentos);
   div.appendChild(buttonCalc);

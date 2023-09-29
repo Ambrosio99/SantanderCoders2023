@@ -37,6 +37,7 @@ export default function resultCalc() {
     const numAdultos = Number(document.getElementById("numAdultos").innerText);
     const numBeber = Number(document.getElementById("numBeber").innerText);
     const numCriancas = Number(document.getElementById("numCriancas").innerText);
+    const numVegans = Number(document.getElementById("numVegans").innerText);
 
     // Carnes selecionadas e forEach para adicionar a array de selecionados
     const listaCarnes = document.querySelectorAll("#lista-carnes li input");
@@ -70,23 +71,59 @@ export default function resultCalc() {
     // Calculos apenas
 
     const numCarnes = carnesSelecionadas.length;
-    const totalPeso = numAdultos * adultoCome + numCriancas * criancaCome;
+    const numVegan = veganSelecionadas.length;
+    const pesoCarnes = numAdultos * adultoCome + numCriancas * criancaCome;
+    const pesoVegans = numVegans * adultoCome;
 
     let totalValor = 0;
 
+    // Calculo das carnes
     let carnePeso = 0;
     let carneValor = 0;
     let carneTotal = 0;
-
-    // Calculo das carnes e apresentação das mesmas
     carnesSelecionadas.forEach((carne) => {
-      carnePeso = totalPeso / numCarnes;
+      carnePeso = pesoCarnes / numCarnes;
       carneValor = (carnePeso / carne.peso) * carne.preco;
       carneTotal += carneValor;
       console.log(`São ${carnePeso}g de ${carne.id} e o preço médio é de ${parseFloat(carneValor)} reais`);
     });
 
     // Calculo das bebidas
-    bebidasSelecionadas.forEach((bedida) => {});
+    let bebidaValor = 0;
+    let bebidaTotalCA = 0;
+    let bebidaTotalSA = 0;
+    bebidasSelecionadas.forEach((bebida) => {
+      if (bebida.alcool) {
+        bebidaValor = bebida.qnt * bebida.preco * numBeber;
+        bebidaTotalCA += bebidaValor;
+        console.log(`são ${bebida.qnt} unidade(s) de ${bebida.id} para cada pessoa, a unidade custa ${bebida.preco} reais e logo o total fica ${bebidaValor}`);
+      } else {
+        bebidaValor = bebida.qnt * bebida.preco * (numAdultos + numVegans);
+        bebidaTotalSA += bebidaValor;
+        console.log(`são ${bebida.qnt} unidade(s) de ${bebida.id} para cada pessoa, a unidade custa ${bebida.preco} reais e logo o total fica ${bebidaValor}.
+        Caso quem for beber álcool não queira outras bebidas o valor cai para ${bebida.qnt * bebida.preco * (numAdultos - numBeber)}`);
+      }
+    });
+
+    // Calculo opções veganas
+    let veganValor = 0;
+    let veganPeso = 0;
+    let veganTotal = 0;
+    veganSelecionadas.forEach((vegan) => {
+      veganPeso = pesoVegans / numVegan;
+      veganValor = (veganPeso / vegan.peso) * vegan.preco;
+      veganTotal += veganValor;
+      console.log(`São ${veganPeso}g de ${vegan.id} e o preço médio é de ${parseFloat(veganValor)} reais`);
+    });
+
+    // Calculo acompanhamentos
+    let acompValor = 0;
+    let acompPeso = 0;
+    let acompTotal = 0;
+    acompSelecionadas.forEach((acomp) => {
+      acompValor = acomp.qnt * acomp.preco * (numAdultos + numVegans);
+      acompTotal += acompValor;
+      console.log(`Para ${numAdultos + numVegans} pessoas aconselhamos comprar ${acomp.qnt * (numAdultos + numVegans)} unidades e o preço médio é de ${parseFloat(acompValor)}`);
+    });
   }
 }
