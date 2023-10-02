@@ -14,6 +14,8 @@ export default function initHome() {
   const button = document.createElement("button");
   button.innerHTML = `Calcular seu churrasco <span class="span-button">➜</span>`;
   button.id = "buttonHome";
+  button.disabled = "true";
+  button.classList.add("dis-btn");
 
   const img = document.createElement("img");
   img.src = "./img/churras_init.svg";

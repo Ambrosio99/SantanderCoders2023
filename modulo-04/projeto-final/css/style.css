@@ -14,7 +14,7 @@ main {
   display: grid;
   justify-items: center;
   box-sizing: border-box;
-  padding: 50px 120px;
+  padding: 40px 120px;
   background-color: #1c1d1f;
   border: 3px solid #950e0f;
   border-radius: 8px;
@@ -25,7 +25,7 @@ main {
   color: white;
   font-size: 4rem;
   font-weight: 800;
-  margin-top: 50px;
+  margin-top: 40px;
   margin-bottom: 40px;
 }
 
@@ -39,7 +39,7 @@ main {
   margin-bottom: 40px;
 }
 
-.container-intro button {
+.ativ-btn {
   background-color: #bf2123;
   border: none;
   color: white;
@@ -49,13 +49,36 @@ main {
   cursor: pointer;
   border-radius: 8px;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
+}
+.ativ-btn:hover {
+  background-color: #981517;
+}
+.dis-btn {
+  position: relative;
+  background-color: #794e4e;
+  border: none;
+  color: rgb(168, 168, 168);
+  font-size: 1.7rem;
+  font-weight: 700;
+  padding: 30px 36px;
+  cursor: pointer;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.dis-btn::after {
+  position: absolute;
+  content: "É necessário se registrar para utilizar o churrascômetro!";
+  color: rgb(199, 17, 17);
+  font-size: 1rem;
+  width: 50ch;
+  top: -20px;
+  left: -5px;
+  cursor: alias;
 }
 .span-button {
   padding-left: 30px;
-}
-.container-intro button:hover {
-  background-color: #981517;
 }
 
 .container-intro img {
@@ -63,7 +86,7 @@ main {
   bottom: 0;
   right: 0;
   padding: 20px;
-  max-width: 200px;
+  max-width: 220px;
 }
 
 /*           CONTAINER CALC           */
@@ -181,18 +204,21 @@ main {
 }
 /* checkbox */
 
-.formAlimentos input[type="checkbox"] {
+.formAlimentos input[type="checkbox"],
+.termos-login input[type="checkbox"] {
   display: none;
 }
 
-.formAlimentos label {
+.formAlimentos label,
+.termos-login label {
   position: relative;
   padding-left: 28px;
   cursor: pointer;
   font-size: 1.125rem;
 }
 
-.formAlimentos label::before {
+.formAlimentos label::before,
+.termos-login label::before {
   content: "";
   position: absolute;
   left: 0;
@@ -218,15 +244,17 @@ main {
   }
 }
 
-.formAlimentos input[type="checkbox"]:checked + label::before {
+.formAlimentos input[type="checkbox"]:checked + label::before,
+.form-login input[type="checkbox"]:checked + label::before {
   content: "\2713";
-  color: #fff;
+  color: white;
   font-size: 12px;
   text-align: center;
   line-height: 18px;
   animation: checkAnimation 0.2s ease-in-out;
 }
-.formAlimentos input[type="checkbox"]:active + label::before {
+.formAlimentos input[type="checkbox"]:active + label::before,
+.form-login input[type="checkbox"]:active + label::before {
   transform: scale(0.92);
 }
 
@@ -241,4 +269,89 @@ main {
   border-radius: 8px;
   text-align: center;
   margin-top: 20px;
+}
+
+/* Form login */
+.h3-login {
+  color: white;
+  font-weight: 600;
+  font-size: 1.175rem;
+  grid-column: 1 / 5;
+}
+.form-login {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 8px 20px;
+  place-self: end center;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  background-color: #1c1d1fab;
+  padding: 20px;
+  border: 2px solid #950e0f;
+  border-radius: 8px;
+}
+.form-login div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.form-login label {
+  font-size: 1.075rem;
+  color: white;
+  font-weight: 600;
+}
+.form-login input {
+  background-color: #1c1d1f63;
+  border: 2px solid #8f1517;
+  padding: 5px 8px;
+  color: white;
+  font-weight: 600;
+  border-radius: 4px;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+.form-login input[type="text"]:focus,
+.form-login input[type="email"]:focus,
+.form-login input[type="number"]:focus {
+  outline: 1px solid #a71e20;
+}
+
+.form-login input[type="button"] {
+  background-color: #bf2123;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 36px;
+  border-radius: 4px;
+  text-align: center;
+  max-width: max-content;
+  place-self: center;
+}
+.form-login input[type="button"]:hover {
+  background-color: #950e0f;
+}
+
+.termos-login {
+  grid-column: 1/5;
+}
+.termos-login label {
+  font-size: 0.95rem;
+  color: #e3e3e3;
+  cursor: pointer;
+}
+.termos-login label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -3px;
+  width: 16px;
+  height: 16px;
+  border: 3px solid #8f1517;
+  border-radius: 4px;
 }
