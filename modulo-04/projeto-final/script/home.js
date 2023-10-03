@@ -1,3 +1,5 @@
+import initRegister from "./register.js";
+
 export default function initHome() {
   const mainContainer = document.querySelector("main");
 
@@ -26,4 +28,7 @@ export default function initHome() {
   div.appendChild(p);
   div.appendChild(button);
   div.appendChild(img);
+
+  const formRegister = initRegister();
+  console.log(formRegister)
 }
