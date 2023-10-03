@@ -117,8 +117,7 @@ export default function resultCalc() {
     });
 
     // Calculo acompanhamentos
-    let acompValor = 0;
-    let acompPeso = 0;
+    let acompValor = 0; 
     let acompTotal = 0;
     acompSelecionadas.forEach((acomp) => {
       acompValor = acomp.qnt * acomp.preco * (numAdultos + numVegans);

@@ -1,34 +1,34 @@
 export default function initRegister() {
   const mainContainer = document.querySelector("main");
 
-  const formLogin = document.createElement("form")
-  formLogin.classList.add("form-login")
+  const formLogin = document.createElement("form");
+  formLogin.classList.add("form-login");
 
   const h3Title = document.createElement("h3");
   h3Title.classList.add("h3-login");
-  h3Title.innerText = "Faça seu registro:"
+  h3Title.innerText = "Faça seu registro:";
 
   const divNome = document.createElement("div");
   divNome.innerHTML = `<label for="name">Nome:</label>
-  <input name="name" id="name-login" type="text" autocomplete="off" placeholder="Nome Completo">`
+  <input name="name" id="name-login" type="text" autocomplete="off" placeholder="Nome Completo">`;
 
   const divEmail = document.createElement("div");
   divEmail.innerHTML = `<label for="email">Email:</label>
-  <input name="email" id="email-login" type="email" autocomplete="off" placeholder="exemplo@gmail.com">`
+  <input name="email" id="email-login" type="email" autocomplete="off" placeholder="exemplo@gmail.com">`;
 
   const divCEP = document.createElement("div");
   divCEP.innerHTML = `<label for="cep">CEP:</label>
-  <input name="cep" id="cep-login" type="number" autocomplete="off" placeholder="Apenas números">`
+  <input name="cep" id="cep-login" type="number" autocomplete="off" placeholder="Apenas números">`;
 
   const enviarBTN = document.createElement("input");
-  enviarBTN.id = 'btn-login';
-  enviarBTN.type = 'button';
-  enviarBTN.value = 'Enviar';
+  enviarBTN.id = "btn-login";
+  enviarBTN.type = "button";
+  enviarBTN.value = "Enviar";
 
   const divTermos = document.createElement("div");
   divTermos.classList.add("termos-login");
   divTermos.innerHTML = `<input type="checkbox" name="termos" id="termos">
-  <label for="termos">Eu aceito receber e-mails com promoções</label>`
+  <label for="termos">Eu aceito receber as melhores promoções da minha região</label>`;
 
   mainContainer.prepend(formLogin);
   formLogin.appendChild(h3Title);

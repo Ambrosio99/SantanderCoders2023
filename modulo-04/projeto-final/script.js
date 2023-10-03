@@ -10,3 +10,8 @@ buttonHome.addEventListener("click", () => {
   calcScript();
   resultScript();
 });
+
+// Colocando aqui para usar futuramente
+const objStorage = localStorage.getItem("registrado");
+const objRegistro = JSON.parse(objStorage);
+console.log(objRegistro);

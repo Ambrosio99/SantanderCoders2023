@@ -6,6 +6,7 @@ export default function initHome() {
   const div = document.createElement("div");
   div.classList.add("container-intro");
   div.id = "divHome";
+  localStorage.registrado ? (div.style.placeSelf = "center") : "";
 
   const h1 = document.createElement("h1");
   h1.innerText = "Churrascômetro";
@@ -16,9 +17,12 @@ export default function initHome() {
   const button = document.createElement("button");
   button.innerHTML = `Calcular seu churrasco <span class="span-button">➜</span>`;
   button.id = "buttonHome";
-  button.disabled = "true";
-  button.classList.add("dis-btn");
-
+  if (!localStorage.registrado) {
+    button.disabled = "false";
+    button.classList.add("dis-btn");
+  } else {
+    button.classList.add("ativ-btn");
+  }
   const img = document.createElement("img");
   img.src = "./img/churras_init.svg";
 
@@ -29,6 +33,39 @@ export default function initHome() {
   div.appendChild(button);
   div.appendChild(img);
 
-  const formRegister = initRegister();
-  console.log(formRegister)
+  // Puxando todas informações do registro inicial
+  if (!localStorage.registrado) {
+    const formRegister = initRegister();
+    const btnLogin = formRegister.querySelector("#btn-login");
+    const nome = formRegister.querySelector("#name-login");
+    const email = formRegister.querySelector("#email-login");
+    const cep = formRegister.querySelector("#cep-login");
+    const termos = formRegister.querySelector("#termos");
+
+    btnLogin.addEventListener("click", () => {
+      const emailCerto = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (emailCerto.test(email.value)) {
+        if (/^\d+$/.test(cep.value) && cep.value.length == 8) {
+          mainContainer.removeChild(formRegister);
+          button.removeAttribute("disabled");
+          button.classList.add("ativ-btn");
+          button.classList.remove("dis-btn");
+          div.style.placeSelf = "center";
+
+          // enviando objeto registro para o localStorage
+          const objRegister = {
+            nome: nome.value,
+            email: email.value,
+            cep: cep.value,
+            termos: termos.checked,
+          };
+          localStorage.setItem("registrado", JSON.stringify(objRegister));
+        } else {
+          console.log("erro do cep");
+        }
+      } else {
+        console.log("erro do email");
+      }
+    });
+  }
 }
