@@ -16,7 +16,7 @@ fetch("script/alimentos.json")
     acomps.push(...dados.Acomp);
   })
   .catch(function (error) {
-    console.error("Ocorreu um erro ao carregar o JSON:", error);
+    console.error("Ocorreu um erro ao carregar a lista de alimentos", error);
   });
 
 // function de apresentação do calculo final
@@ -68,7 +68,33 @@ export default function resultCalc() {
     console.log(veganSelecionadas);
     console.log(acompSelecionadas);
 
-    // Calculos apenas
+    // Criando elementos para apresentação dos resultados
+    const mainContainer = document.querySelector("main");
+
+    const container = document.createElement("div");
+    container.classList.add("container-result");
+    mainContainer.appendChild(container);
+
+    const h1 = document.createElement("h1");
+    h1.innerText = "Como ficou seu churrasco:";
+    container.appendChild(h1);
+
+    const divResults = document.createElement("div");
+    container.appendChild(divResults);
+
+    // const divTitle = document.createElement("div");
+    // divTitle.classList.add("title-lista");
+    // divResults.appendChild(divTitle);
+    // const ul = document.createElement("ul");
+    // ul.classList.add("lista-result");
+    // divResults.appendChild(ul);
+
+    const spanTotal = document.createElement("span");
+    spanTotal.classList.add("total-result");
+    container.appendChild(spanTotal);
+    spanTotal.innerText = "R$ 900,00";
+
+    // Calculos e implementações
 
     const numCarnes = carnesSelecionadas.length;
     const numVegan = veganSelecionadas.length;
@@ -117,7 +143,7 @@ export default function resultCalc() {
     });
 
     // Calculo acompanhamentos
-    let acompValor = 0; 
+    let acompValor = 0;
     let acompTotal = 0;
     acompSelecionadas.forEach((acomp) => {
       acompValor = acomp.qnt * acomp.preco * (numAdultos + numVegans);
