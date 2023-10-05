@@ -61,10 +61,10 @@ export default function initHome() {
           };
           localStorage.setItem("registrado", JSON.stringify(objRegister));
         } else {
-          console.log("erro do cep");
+          alert("preencha cep corretamente");
         }
       } else {
-        console.log("erro do email");
+        alert("preencha email corretamente");
       }
     });
   }

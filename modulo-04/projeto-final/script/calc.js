@@ -123,4 +123,8 @@ export default function initCalc() {
       }
     });
   });
+
+  const respiro = document.createElement("div")
+  respiro.classList.add("respirando")
+  mainContainer.appendChild(respiro)
 }

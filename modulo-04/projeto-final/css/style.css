@@ -366,13 +366,14 @@ input[type="number"]::-webkit-outer-spin-button {
   display: grid;
   position: absolute;
   width: 700px;
-  place-self: center;
+  place-self: start center;
   background-color: #1c1d1f;
   padding: 40px;
   z-index: 20;
   border: 2px solid #981517;
   border-radius: 8px;
   box-shadow: 8px 8px 14px rgba(0, 0, 0, 0.8);
+  margin-top: 30px;
 
   & h1 {
     color: white;
@@ -391,6 +392,7 @@ input[type="number"]::-webkit-outer-spin-button {
     margin-top: 5px;
     padding-bottom: 20px;
     border-bottom: 3px solid #950e0f;
+    line-height: 1.6rem;
   }
 }
 .title-lista {
@@ -420,6 +422,7 @@ input[type="number"]::-webkit-outer-spin-button {
     font-size: 1.35rem;
     font-weight: 700;
     margin-bottom: 5px;
+    text-transform: capitalize;
   }
   & p {
     font-size: 1rem;
@@ -434,4 +437,23 @@ input[type="number"]::-webkit-outer-spin-button {
   font-weight: 700;
   padding: 20px;
   padding-bottom: 0px;
+}
+
+.spanX {
+  position: absolute;
+  z-index: 300;
+  background-image: url("../img/x-icon.svg");
+  width: 40px;
+  height: 40px;
+  left: -15px;
+  top: -15px;
+  border: 2px solid #950e0f;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 8px 8px 14px rgba(0, 0, 0, 0.8);
+}
+
+.respirando {
+  content: "";
+  height: 1px;
 }
