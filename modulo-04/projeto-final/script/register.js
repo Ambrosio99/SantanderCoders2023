@@ -29,6 +29,8 @@ export default function initRegister() {
   divTermos.classList.add("termos-login");
   divTermos.innerHTML = `<input type="checkbox" name="termos" id="termos">
   <label for="termos">Eu aceito receber as melhores promoções da minha região</label>`;
+  const termosInput = divTermos.querySelector("#termos");
+  termosInput.checked = true;
 
   mainContainer.prepend(formLogin);
   formLogin.appendChild(h3Title);

@@ -61,10 +61,23 @@ export default function initHome() {
           };
           localStorage.setItem("registrado", JSON.stringify(objRegister));
         } else {
-          alert("preencha cep corretamente");
+          errors("cep-error");
         }
       } else {
-        alert("preencha email corretamente");
+        errors("email-error");
+      }
+
+      function errors(tipo) {
+        const span = document.createElement("span");
+        span.classList.add("errorSpan");
+        if (tipo == "cep-error") {
+          span.innerHTML = "CEP inválido, deve conter apenas números.";
+        }
+        if (tipo == "email-error") {
+          span.innerHTML = "Email inválido, verifique e tente novamente.";
+        }
+        formRegister.appendChild(span);
+        setTimeout(() => formRegister.removeChild(span), 2500);
       }
     });
   }

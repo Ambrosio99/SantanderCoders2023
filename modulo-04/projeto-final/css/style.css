@@ -1,5 +1,7 @@
 body {
   background-image: url(../img/background.jpg);
+  background-size: cover;
+  background-attachment: fixed;
   font-family: "Catamaran", sans-serif;
 }
 main {
@@ -101,7 +103,7 @@ main {
   border: 3px solid #950e0f;
   border-radius: 8px;
   max-width: 1200px;
-  margin: 20px;
+  margin: 40px 20px 0px 20px;
 }
 .container-calc h1 {
   color: white;
@@ -275,6 +277,15 @@ main {
 }
 
 /* Form login */
+.errorSpan {
+  position: absolute;
+  color: white;
+  color: #bf2123;
+  font-weight: 600;
+  font-size: 1.075rem;
+  place-self: start center;
+  top: 8px;
+}
 .h3-login {
   color: white;
   font-weight: 600;
@@ -282,6 +293,7 @@ main {
   grid-column: 1 / 5;
 }
 .form-login {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 8px 20px;
@@ -374,6 +386,7 @@ input[type="number"]::-webkit-outer-spin-button {
   border-radius: 8px;
   box-shadow: 8px 8px 14px rgba(0, 0, 0, 0.8);
   margin-top: 30px;
+  margin-bottom: 10px;
 
   & h1 {
     color: white;
@@ -455,5 +468,6 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .respirando {
   content: "";
-  height: 1px;
+  padding: 20px;
+  color: #ffffff00;
 }
