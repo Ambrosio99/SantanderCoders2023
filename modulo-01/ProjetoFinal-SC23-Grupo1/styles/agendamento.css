@@ -56,10 +56,13 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100%;
+  margin-top: 1rem;
 }
 
 #agendamento .banner img {
   max-height: 50vh;
+  margin-bottom: 24px;
+  border-radius: 6px;
 }
 
 #agendamento .banner-text {
@@ -308,4 +311,20 @@
 .confirmar:hover {
   background-color: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
+}
+
+.btn-header {
+  color: white;
+  padding: 1rem 3rem !important;
+  background: linear-gradient(160deg, rgba(19, 113, 158, 1) 55%, rgb(1, 91, 136) 100%);
+  border-radius: 10px !important;
+  font-weight: bold;
+  font-size: 1.125rem;
+  text-transform: uppercase !important;
+  cursor: pointer;
+  border: none;
+
+  &:hover {
+    background: linear-gradient(160deg, rgb(14, 102, 143) 55%, rgb(0, 84, 126) 100%);
+  }
 }
